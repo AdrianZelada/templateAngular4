@@ -1,0 +1,13 @@
+
+<a [routerLink]="menuItem.path">
+  <i [class]="menuItem.icon"></i>
+  {{menuItem.label}}
+  {{collap}}
+  <i class="fa arrow" *ngIf="menuItem.children"></i>
+</a>
+
+<ul *ngIf="menuItem.children" [className]="!collap ? 'collapse':'collapse in'">
+  <li *ngFor="let itemMenu of menuItem.children ; let ind=index" zt-nav-item [menu]="itemMenu"
+      (click)="controlClass=ind">
+  </li>
+</ul>
